@@ -1,0 +1,161 @@
+{% extends 'temp_app/base.html' %}
+{% load static %}
+{% block content %}
+
+
+<div class="bg-secondary p-5">
+    {% comment %} <p class="d-inline-block bg-dark text-primary py-1 px-4">Contact Us</p> {% endcomment %}
+    <h1 class="text-uppercase mb-4 text-center">JOIN YOUR SELF WITH US</h1>
+    {% comment %} <p class="mb-4">The contact form is currently inactive. Get a functional and working contact form with Ajax & PHP in a few minutes. Just copy and paste the files, add a little code and you're done. <a href="https://htmlcodex.com/contact-form">Download Now</a>.</p> {% endcomment %}
+    <form action="{% url 'signup' %}" method="POST">
+        {% csrf_token %}
+        <div class="row g-3">
+            <div class="col-md-6">
+                <div class="form-floating">
+                    <input type="text" class="form-control bg-transparent" id="name" name="username" placeholder="Your Name">
+                    <label for="name">USERNAME</label>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="form-floating">
+                    <input type="email" class="form-control bg-transparent" id="email" name="email"  placeholder="Your Email">
+                    <label for="email">EMAIL</label>
+                </div>
+            </div>
+            <div class="col-6">
+                <div class="form-floating">
+                    <input type="text" class="form-control bg-transparent" id="fname" name="fname" placeholder="Subject">
+                    <label for="subject">FIRST NAME</label>
+                </div>
+            </div>
+            <div class="col-6">
+                <div class="form-floating">
+                    <input type="text" class="form-control bg-transparent" id="lname" name="lname" placeholder="Subject">
+                    <label for="subject">LAST NAME</label>
+                </div>
+            </div>
+            <div class="col-6">
+                <div class="form-floating">
+                    <input type="text" class="form-control bg-transparent" id="pass1" name="pass1"  placeholder="Subject">
+                    <label for="subject">PASSWORD</label>
+                </div>
+            </div>
+            <div class="col-6">
+                <div class="form-floating">
+                    <input type="text" class="form-control bg-transparent" id="pass2"  name="pass2" placeholder="Subject">
+                    <label for="subject">CONFIRM PASSWORD</label>
+                </div>
+            </div>
+
+            {% comment %} <div class="col-12">
+                <div class="form-floating">
+                    <textarea class="form-control bg-transparent" placeholder="Leave a message here" id="message" style="height: 100px"></textarea>
+                    <label for="message">Message</label>
+                </div>
+            </div> {% endcomment %}
+            <div class="col-md-12">
+                <div class="form-floating">
+                    <select class="form-select" name="role" id="role" oninput="rub()" style="background-color:#191C24;">
+                        
+                        <option value="Owner">CLIENT</option>
+                        <option value="Customer">OWNER</option>   
+                    </select>
+                    <label for="email">ROLE</label>
+                </div>
+            </div>
+
+            <div class="col-12">
+                <button class="btn btn-primary w-100 py-3" type="submit">SIGN UP</button>
+            </div>
+            <div class="col-12">
+               
+                <button class="btn btn-primary w-100 py-3" type="submit" > <a href="{% url 'loginforuser' %}" style="color:#fff">LOGIN</a></button>
+            
+        </div>
+         
+            {% for message in messages  %}
+<h3>
+<div class="alert alert-{{message.tags}} alert-dismissible fade show" role="alert" align="center" style="color:red">
+    
+    <strong  >message :</strong> {{message}}
+    {% comment %} <button type="button" class="close" > {% endcomment %}
+    {% comment %} <span aria-hidden="true">&times;</span> {% endcomment %}
+    {% comment %} </button>  {% endcomment %}
+</div>
+</h3>
+{% endfor %}
+        </div>
+    </form>
+</div>
+<script>
+    function sub()
+    {
+        user=document.getElementById("username").value
+        if(user=="")
+        {
+            document.getElementById("span_id").innerHTML="*username must be required"
+            return false
+        }
+        else if(user.length<2||user.length>10)
+        {
+            document.getElementById("span_id").innerHTML="*username should not be less than 2 and more than 10"
+            return false
+        }
+        if(!isNaN(user))
+        {
+            document.getElementById("span_id").innerHTML="*username must be in alphabet"
+        }
+
+        fname=document.getElementById("fname").value
+        if(fname=="")
+        {
+            document.getElementById("span_id_fname").innerHTML="*first name must be filled"
+            return false
+        }
+        else if(fname.length<2||fname.length>10)
+        {
+            document.getElementById("span_id_fname").innerHTML="*first name should not be less than 2 and more than 15"
+            return false
+        }
+        if(!isNaN(fname))
+        {
+            document.getElementById("span_id_fname").innerHTML="*first name must be in alphabets"
+            return false
+        }
+
+        lname=document.getElementById("lname").value
+        if(lname=="")
+        {
+            document.getElementById("span_id_lname").innerHTML="*last name must be filled"
+            return false
+        }
+        else if(lname.length<2||lname.length>10)
+        {
+            document.getElementById("span_id_lname").innerHTML="*last name should not be less than 2 and more than 15"
+            return false
+        }
+        if(!isNaN(lname))
+        {
+            document.getElementById("span_id_lname").innerHTML="*last name must be in alphabets"
+            return false
+        }
+
+        email=document.getElementById("email").value
+        if(email="")
+        {
+            document.getElementById("email").innerHTML="*your email id is nesscessry"
+            return false
+        }
+        
+
+
+
+    }
+    function rub()
+    {
+        document.getElementById("span_id").innerHTML=""
+        document.getElementById("span_id_fname").innerHTML=""
+        document.getElementById("span_id_lname").innerHTML=""
+    } 
+</script>
+{% endblock  %}

@@ -1,0 +1,94 @@
+{% extends 'temp_app/base.html' %}
+{% load static %}
+{% block content %}
+
+<div class="bg-secondary p-5">
+   
+    <h1 class="text-uppercase mb-4">book your appointment</h1>
+   
+    <form action="{% url 'book_appointment' %}" method="POST">
+        {% csrf_token %}
+        <div class="row g-3">
+            <div class="col-md-6" hidden>
+                <div class="form-floating">
+                    {% if user.is_authenticated %}
+                    
+                    
+                    <input type="text" class="form-control bg-transparent" id="date" name="username" placeholder="Your Name" value="{{user}}" >
+                    {% else %}
+                            
+                    <h1>test hkjdhfdk</h1>
+                    <input type="text" class="form-control bg-transparent" id="date" name="username" placeholder="Your Name" value="guest" >
+                    {% endif %}
+                    <label for="name">username</label>
+                </div>
+            </div>
+
+            <div class="col-md-12">
+                <div class="form-floating">
+                    <input type="datetime-local" class="form-control bg-transparent" id="time" name="time" max="2073-06-14T00:00" placeholder="Your Email">
+                    <label for="datetime">time</label>
+                </div>
+            </div>
+            <div class="col-md-12">
+                <div class="form-floating">
+                    <input type="number" class="form-control bg-transparent" id="amount" name="amount" placeholder="Your Name" >
+                    <label for="name">advance amount</label>
+                </div>
+            </div>
+           
+            
+            <div class="col-12">
+                <button class="btn btn-primary w-100 py-3" type="submit"> 
+                    book appointment   
+                </button>
+            </div>
+            {% for message in messages  %}
+                            <div class="alert alert-{{message.tags}} alert-dismissible fade show" role="alert">
+                                
+                                <strong>message :</strong> {{message}}
+                                {% comment %} <button type="button" class="close"     data-dismiss=alert aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>  {% endcomment %}
+                            </div>
+             {% endfor %}
+            
+        </div>
+    </form>
+</div>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<script>
+    
+    $(function(){
+    var dtToday = new Date();
+    
+    var month = dtToday.getMonth() + 1;
+    var day = dtToday.getDate();
+    var year = dtToday.getFullYear();
+    var sec =dtToday.getSeconds();
+    var min=dtToday.getMinutes();
+    var hour=dtToday.getHours();
+    if(month < 10)
+        month = '0' + month.toString();
+    if(day < 10)
+        day = '0' + day.toString();
+    if(sec < 10)
+        sec = '0' + sec.toString();
+    if(min < 10)
+        min = '0' + min.toString();
+    if(hour < 10)
+        hour = '0' + hour.toString();
+    
+    var maxDate = year + '-' + month + '-' + day+'T'+hour+':'+min;
+
+    // or instead:
+    // var maxDate = dtToday.toISOString().substr(0, 10);
+
+    $('#time').attr('min', maxDate);
+});
+// var currentdate = new Date(); 
+//     var maxDate = year + '-' + month + '-' + day;
+//     alert(maxDate);
+//     $('#time').attr('min', maxDate);
+</script>
+{% endblock %}
