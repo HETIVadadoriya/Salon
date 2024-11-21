@@ -1,0 +1,116 @@
+{% extends "temp_app/base.html" %}
+{% load static %}
+{% block content %}
+<style>
+input[type=file]::file-selector-button {
+  background-color:#191C24; 
+}
+input[type=file]::file-selector-button:hover { 
+    background-color:#191C24;
+}
+</style>
+<div class="bg-secondary p-5">
+   
+    <h1 class="text-uppercase mb-4">luncing new product</h1>
+    <form action="{% url 'add_product' %}" method="POST" onsubmit="return sub()">
+        {% csrf_token %}
+        <div class="row g-3">
+            <div class="col-md-6">
+                <div class="form-floating">
+                    <input type="file" class="form-control bg-transparent" id="pro_img" name="pro_img" oninput="rub()" placeholder="productName">
+                    <label for="name">product_img</label>
+                    <span id="span_id" style="color: red;"></span>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="form-floating">
+                    <input type="text" class="form-control bg-transparent" id="pro_name" name="pro_name" oninput="rub()" placeholder="productName">
+                    <label for="name">product_name</label>
+                    <span id="span_id_name" style="color: red;"></span>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="form-floating">
+                    <input type="text" class="form-control bg-transparent" id="pro_price" name="pro_price"  oninput="rub()" placeholder="productprice">
+                    <label for="pro_price">Price</label>
+                    <span id="span_id_price" style="color: red;"></span>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="form-floating">
+                    <input type="text" class="form-control bg-transparent" id="pro_desc" name="pro_desc"  oninput="rub()" placeholder="pro_desc">
+                    <label for="name">product_description</label>
+                    <span id="span_id_desc" style="color: red;"></span>
+                </div>
+            </div>
+            
+            <div class="col-md-12">
+                <div class="form-floating">
+                    <input type="datetime-local" class="form-control bg-transparent" id="time" name="pro_date_time" placeholder="Your Email">
+                    <label for="datetime">time</label>
+                </div>
+            </div>
+           
+            
+
+            
+            <div class="col-12">
+                <button class="btn btn-primary w-100 py-3" type="submit" > 
+                    ADD    
+                </button>
+            </div>
+        </div>
+    </form>
+</div>
+
+
+
+<script>
+    function sub()
+    {
+        pro_name=document.getElementById("pro_name").value
+        if(pro_name=="")
+        {
+            document.getElementById("span_id_name").innerHTML="*pro_name must be required"
+            return false
+        }
+        else if(pro_name.length<5||pro_name.length>30)
+        {
+            document.getElementById("span_id_name").innerHTML="*pro_name should not be less than 5 and more than 20"
+            return false
+        }
+        
+
+        pro_desc=document.getElementById("pro_desc").value
+        if(pro_desc=="")
+        {
+            document.getElementById("span_id_desc").innerHTML="*product_description name must be filled"
+            return false
+        }
+        
+
+        pro_price=document.getElementById("pro_price").value
+        if(pro_price=="")
+        {
+            document.getElementById("span_id_price").innerHTML="*your pro_price id is nesscessry"
+            return false
+        }
+        if(isNaN(pro_price))
+        {
+            document.getElementById("span_id_price").innerHTML="*price is not in char"
+            return false
+        }
+        
+
+
+
+    }
+    function rub()
+    {
+        document.getElementById("span_id_name").innerHTML=""
+        document.getElementById("span_id_desc").innerHTML=""
+        document.getElementById("span_id_price").innerHTML=""
+    } 
+</script>
+
+{% endblock %}

@@ -1,0 +1,146 @@
+{% extends 'temp_app/base.html '%}
+{% load static %}
+{% block content %}
+
+    <!-- Page Header Start -->
+    <div class="container-fluid page-header py-5 mb-5 wow fadeIn" data-wow-delay="0.1s">
+        <div class="container text-center py-5">
+            <h1 class="display-3 text-white text-uppercase mb-3 animated slideInDown">About</h1>
+            <nav aria-label="breadcrumb animated slideInDown">
+                <ol class="breadcrumb justify-content-center text-uppercase mb-0">
+                    <li class="breadcrumb-item"><a class="text-white" href="{% url 'index' %}">Home</a></li>
+                    <li class="breadcrumb-item text-primary active" aria-current="page">About</li>
+                </ol>
+            </nav>
+        </div>
+    </div>
+    <!-- Page Header End -->
+
+
+    <!-- About Start -->
+    <div class="container-xxl py-5">
+        <div class="container">
+            <div class="row g-5">
+                <div class="col-lg-6 wow fadeIn" data-wow-delay="0.1s">
+                    <div class="d-flex flex-column">
+                        <img class="img-fluid w-75 align-self-end" src="{% static 'temp_app/img/about.jpg' %}" alt="">
+                        <div class="w-50 bg-secondary p-5" style="margin-top: -25%;">
+                            <h1 class="text-uppercase text-primary mb-3">25 Years</h1>
+                            <h2 class="text-uppercase mb-0">Experience</h2>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6 wow fadeIn" data-wow-delay="0.5s">
+                    <p class="d-inline-block bg-secondary text-primary py-1 px-4">About Us</p>
+                    <h1 class="text-uppercase mb-4">More Than Just A Haircut. Learn More About Us!</h1>
+                    <p>The baeber is the "one who shaves all those,and those onle,who do not shave themselves."</p>
+                    <p class="mb-4">The barber can not shave himself,as he only shave those who do not shave themselves.</p>
+                    <div class="row g-4">
+                        <div class="col-md-6">
+                            <h3 class="text-uppercase mb-3">Since 2006</h3>
+                            <p class="mb-0">A beauty salon is an establishment since 2006.and that offers a verity of cosmetic treatment and cosmetic services for men and women.</p>
+                        </div>
+                        <div class="col-md-6">
+                            <h3 class="text-uppercase mb-3">1000+ clients</h3>
+                            <p class="mb-0">Salon may offers a verity of services including professional hair cutting and styling,manicure,pedicure,makeup and makeovers.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- About End -->
+
+
+    <!-- Team Start -->
+    <div class="container-xxl py-5">
+        <div class="container">
+            <div class="text-center mx-auto mb-5 wow fadeInUp" data-wow-delay="0.1s" style="max-width: 600px;">
+                <p class="d-inline-block bg-secondary text-primary py-1 px-4">Our Barber</p>
+                <h1 class="text-uppercase">Meet Our Barber</h1>
+            </div>
+            <div class="row g-4">
+                <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
+                    <div class="team-item">
+                        <div class="team-img position-relative overflow-hidden">
+                            <img class="img-fluid" src="{% static 'temp_app/img/team-1.jpg' %}" alt="">
+                            {% comment %} <div class="team-social">
+                                <a class="btn btn-square" href=""><i class="fab fa-facebook-f"></i></a>
+                                <a class="btn btn-square" href=""><i class="fab fa-twitter"></i></a>
+                                <a class="btn btn-square" href=""><i class="fab fa-instagram"></i></a>
+                            </div> {% endcomment %}
+                        </div>
+                        <div class="bg-secondary text-center p-4">
+                            <h5 class="text-uppercase">Meet</h5>
+                            <br>
+                            <span class="text-primary">Ahemdabad</span>
+                            <br>
+                            <span class="text-primary">meet@gmail.com</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.3s">
+                    <div class="team-item">
+                        <div class="team-img position-relative overflow-hidden">
+                            <img class="img-fluid" src="{% static 'temp_app/img/team-2.jpg' %}" alt="">
+                            {% comment %} <div class="team-social">
+                                <a class="btn btn-square" href=""><i class="fab fa-facebook-f"></i></a>
+                                <a class="btn btn-square" href=""><i class="fab fa-twitter"></i></a>
+                                <a class="btn btn-square" href=""><i class="fab fa-instagram"></i></a>
+                            </div> {% endcomment %}
+                        </div>
+                        <div class="bg-secondary text-center p-4">
+                            <h5 class="text-uppercase">Vaidik</h5>
+                            <br>
+                            <span class="text-primary">Vadodra</span>
+                            <br>
+                            <span class="text-primary">vaidik@gmail.com</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.5s">
+                    <div class="team-item">
+                        <div class="team-img position-relative overflow-hidden">
+                            <img class="img-fluid" src="{% static 'temp_app/img/team-3.jpg' %}" alt="">
+                            {% comment %} <div class="team-social">
+                                <a class="btn btn-square" href=""><i class="fab fa-facebook-f"></i></a>
+                                <a class="btn btn-square" href=""><i class="fab fa-twitter"></i></a>
+                                <a class="btn btn-square" href=""><i class="fab fa-instagram"></i></a>
+                            </div> {% endcomment %}
+                        </div>
+                        <div class="bg-secondary text-center p-4">
+                            <h5 class="text-uppercase">Ashish</h5>
+                            <br>
+                            <span class="text-primary">Gandhinagar</span>
+                            <br>
+                            <span class="text-primary">ashish@gmail.com</span>
+                            
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.7s">
+                    <div class="team-item">
+                        <div class="team-img position-relative overflow-hidden">
+                            <img class="img-fluid" src="{% static 'temp_app/img/team-4.jpg' %}" alt="">
+                            {% comment %} <div class="team-social">
+                                <a class="btn btn-square" href=""><i class="fab fa-facebook-f"></i></a>
+                                <a class="btn btn-square" href=""><i class="fab fa-twitter"></i></a>
+                                <a class="btn btn-square" href=""><i class="fab fa-instagram"></i></a>
+                            </div> {% endcomment %}
+                        </div>
+                        <div class="bg-secondary text-center p-4">
+                            <h5 class="text-uppercase">Hit</h5>
+                            <br>
+                            <span class="text-primary">Surat</span>
+                            <br>
+                            <span class="text-primary">hit@gmail.com</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Team End -->
+
+
+{% endblock %}    

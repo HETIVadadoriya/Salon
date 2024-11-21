@@ -1,0 +1,68 @@
+{% extends "temp_app/base.html" %} 
+{% load static %}
+    {% block content %}
+        {% for i in update_ser  %}
+       <table>
+        <form action="/change_service/{{i.id}}/" method="POST" id="editservice-{{forloop.counter}}">
+            {% csrf_token %}
+        <!-- <tr>
+            <th>
+                product_id :
+            </th>
+            <th>
+
+                <input type="text" name="product_id" value="{{getproduct_details.id}}">
+            </th>
+        </tr> -->
+        <tr>
+            <th>
+                service_name : 
+            </th>
+            <th>
+                <input type="text" name="ser_name" value="{{i.ser_name}}">
+            </th>
+        </tr>
+        <tr>
+            <th>
+                service_image : 
+            </th>
+            <th>
+                <input type="file" name="ser_img">
+            </th>
+        </tr>
+        <tr>
+            <th>
+                service_price :
+            </th>
+            <th>
+                <input type="text" name="ser_price" value="{{i.ser_price}}">
+            </th>
+        </tr>
+        <tr>
+            <th>
+                service_des :
+            </th>
+            <th>
+                <input type="text" name="ser_desc" value="{{i.ser_desc}}">
+            </th>
+        </tr>
+        <tr>
+            <th>
+                service_date :
+            </th>
+            <th>
+                <input type="datetime-local" name="serduct_date" value="{{i.ser_date_time}}">
+            </th>
+        </tr>
+        <tr>
+            <th>
+                <input type="submit" value="update">
+                <!-- <input type="submit" value="{% url 'index' %}"> -->
+                <a href="{% url 'display_service' %}">home page</a>
+            </th>
+        </tr>
+        {% endfor %}
+       
+        </form>
+       </table>
+{% endblock  %}

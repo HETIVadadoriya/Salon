@@ -1,0 +1,41 @@
+{% extends 'temp_app/base.html' %}
+{% load static %}
+{% block content %}
+  
+
+<h1 align="center">WELCOME TO BLOSSOM SALON</h1>
+{% for message in messages  %}
+<div class="alert alert-{{message.tags}} alert-dismissible fade show" role="alert" style="text-align: center;">
+    
+    <strong>message :</strong> {{message}}
+    <!-- <button type="button" class="close"     data-dismiss=alert aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+    </button>  -->
+</div>
+{% endfor %}
+
+{% if user.is_authenticated %}
+<h3 align="center">make your own exprience with us {{fname}}</h3>
+<h4 align="center">you are successfully log in </h4> 
+<br>
+<div class="col-12">
+    <button class="btn btn-primary w-100 py-3" type="submit"> 
+       <a href="{% url 'owner_profile' %}" style="color:white;">MANAGE PROFILE</a> 
+    </button>
+</div>
+<br>
+
+<div class="col-12">
+    <button class="btn btn-primary w-100 py-3" type="submit"> 
+       <a href="logoutforuser" style="color:white;">LOGOUT</a> 
+    </button>
+</div>
+
+{% else %}
+
+<button type="submit"><a href="/signup">signup</a> </button>
+<br>
+<button type="submit"><a href="/loginforuser">login</a> </button>
+
+{% endif %}
+{% endblock  %}

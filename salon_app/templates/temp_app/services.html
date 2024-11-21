@@ -1,0 +1,115 @@
+
+{% extends 'temp_app/base.html '%}
+{% load static %}
+{% block content %}
+
+    <!-- Page Header Start -->
+    <div class="container-fluid page-header py-5 mb-5 wow fadeIn" data-wow-delay="0.1s">
+        <div class="container text-center py-5">
+            <h1 class="display-3 text-white text-uppercase mb-3 animated slideInDown">Service</h1>
+            <nav aria-label="breadcrumb animated slideInDown">
+                <ol class="breadcrumb justify-content-center text-uppercase mb-0">
+                    <li class="breadcrumb-item"><a class="text-white" href="{% url 'index' %}">Home</a></li>
+                    <li class="breadcrumb-item text-primary active" aria-current="page">Service</li>
+                </ol>
+            </nav>
+        </div>
+    </div>
+    <!-- Page Header End -->
+
+
+    <!-- Service Start -->
+    <div class="container-xxl py-5">
+        <div class="container">
+            <div class="text-center mx-auto mb-5 wow fadeInUp" data-wow-delay="0.1s" style="max-width: 600px;">
+                <p class="d-inline-block bg-secondary text-primary py-1 px-4">Services</p>
+                <h1 class="text-uppercase">What We Provide</h1>
+            </div>
+            {% for service in service_object %}
+            <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
+                <div class="service-item position-relative overflow-hidden bg-secondary d-flex h-100 p-5 ps-0">
+                    <div class="bg-dark d-flex flex-shrink-0 align-items-center justify-content-center" style="width: 60px; height: 60px;">
+                            <div class="row g-4">
+                            <img class="img-fluid" src="{% static 'temp_app/img/haircut.png' %}" alt="">
+                        </div>
+                        
+                    </div>
+                    <div class="ps-4">
+                        <img class="img-fluid" src="https://images.indianexpress.com/2019/12/waxing-1.jpg" alt="">
+                        <h3 class="text-uppercase mb-3">{{service.ser_name}}</h3>
+                        <a class="btn btn-square" href="{% url 'add_service' %}"><i class="fa fa-plus text-primary"></i></a>
+                        <a class="btn btn-square "  href="{% url 'add_service' %}"><i class="fa fa-plus text-primary"></i></a>
+                        <p>{{service.ser_date_time}}</p>
+                        <p>{{service.ser_desc}}</p>
+                        <span class="text-uppercase text-primary"> &#8377;{{service.ser_price}}</span>
+                    </div>
+                     <div class="col-4" style="display:flex">
+                        <button class="btn btn-primary w-100 py-3" type="button" style="text-align:left;">          
+                            
+                                <a  href="{% url 'delete_service' service.id %}" class="card-link" style="color: white;">Delete</a>
+                                                 
+                        </button>
+                        <button  style="text-align: left;" class="btn btn-primary w-50 py-3" type="button">
+                            
+                            <a href="{% url 'update_service' service.id %}" class="card-link" style="color: white;">update</a>                                
+                       </button>
+                       <button class="btn btn-primary w-10 py-3" type="button" style="text-align:left;">
+                                
+                        <a  href="{% url 'appointment' %}" class="card-link" style="color: white;">Make appointment</a>
+                                                 
+                        </button> 
+                        
+                    </div>
+                </div>
+            </div>
+            
+            {% comment %} <div class="col-4">
+                <button class="btn btn-primary w-100 py-3" type="button">
+                    <a href="{% url 'delete_service' service.id %}" class="card-link" style="color:white;">Delete</a>
+                </button>
+                <button  style="text-align: left;" class="btn btn-primary w-50 py-3" type="button">
+                                
+                    <a href="{% url 'update_service' service.id %}" class="card-link" style="color: white;">update</a>                                
+            </button>
+                
+            </div> {% endcomment %}
+            <br>
+            <br>
+            {% endfor %}
+        </div>
+    </div>
+                
+
+
+    <!-- Testimonial Start -->
+    <div class="container-xxl py-5">
+        <div class="container">
+            <div class="text-center mx-auto mb-5 wow fadeInUp" data-wow-delay="0.1s" style="max-width: 600px;">
+                <p class="d-inline-block bg-secondary text-primary py-1 px-4">Testimonial</p>
+                <h1 class="text-uppercase">What Our Clients Say!</h1>
+            </div>
+            <div class="owl-carousel testimonial-carousel wow fadeInUp" data-wow-delay="0.1s">
+                <div class="testimonial-item text-center" data-dot="<img class='img-fluid' src={% static 'temp_app/img/testimonial-1.jpg'%} alt=''>">
+                    <h4 class="text-uppercase">Client Name</h4>
+                    <p class="text-primary">Profession</p>
+                    <span class="fs-5">Clita clita tempor justo dolor ipsum amet kasd amet duo justo duo duo labore sed sed. Magna ut diam sit et amet stet eos sed clita erat magna elitr erat sit sit erat at rebum justo sea clita.</span>
+                </div>
+                <div class="testimonial-item text-center" data-dot="<img class='img-fluid' src={% static 'temp_app/img/testimonial-2.jpg'%} alt=''>">
+                    <h4 class="text-uppercase">Client Name</h4>
+                    <p class="text-primary">Profession</p>
+                    <span class="fs-5">Clita clita tempor justo dolor ipsum amet kasd amet duo justo duo duo labore sed sed. Magna ut diam sit et amet stet eos sed clita erat magna elitr erat sit sit erat at rebum justo sea clita.</span>
+                </div>
+                <div class="testimonial-item text-center" data-dot="<img class='img-fluid' src={% static 'temp_app/img/testimonial-3.jpg'%} alt=''>">
+                    <h4 class="text-uppercase">Client Name</h4>
+                    <p class="text-primary">Profession</p>
+                    <span class="fs-5">Clita clita tempor justo dolor ipsum amet kasd amet duo justo duo duo labore sed sed. Magna ut diam sit et amet stet eos sed clita erat magna elitr erat sit sit erat at rebum justo sea clita.</span>
+                </div>
+            </div>      
+        </div>
+    </div>
+    <!-- Testimonial End -->
+
+    
+      
+
+{% endblock %}    

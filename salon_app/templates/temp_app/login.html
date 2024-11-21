@@ -1,0 +1,73 @@
+{% extends 'temp_app/base.html' %}
+{% load static %}
+{% block content %}
+
+
+<div class="bg-secondary p-5">
+    {% comment %} <p class="d-inline-block bg-dark text-primary py-1 px-4">Contact Us</p> {% endcomment %}
+    <h1 class="text-uppercase mb-4  text-center">WELCOME</h1>
+    {% comment %} <p class="mb-4">The contact form is currently inactive. Get a functional and working contact form with Ajax & PHP in a few minutes. Just copy and paste the files, add a little code and you're done. <a href="https://htmlcodex.com/contact-form">Download Now</a>.</p> {% endcomment %}
+    
+    <form action={% url 'loginforuser' %} method="POST">
+        {% csrf_token %}
+        <div class="row g-3">
+            <div class="col-md-6">
+                <div class="form-floating">
+                    <input type="text" class="form-control bg-transparent" id="username" name="username"  placeholder="username">
+                    <label for="name">USERNAME</label>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="form-floating">
+                    <input type="text" class="form-control bg-transparent" id="pass1" name="pass1" placeholder="Your Email">
+                    <label for="text">PASSWORD</label>
+                </div>
+            </div>
+            
+
+            {% comment %} <div class="col-12">
+                <div class="form-floating">
+                    <textarea class="form-control bg-transparent" placeholder="Leave a message here" id="message" style="height: 100px"></textarea>
+                    <label for="message">Message</label>
+                </div>
+            </div> {% endcomment %}
+            <div class="col-12">
+            
+                <button class="btn btn-primary w-100 py-3" type="submit">LOG IN</button>
+              
+            </div>
+            <div class="col-12">
+               
+                    <button class="btn btn-primary w-100 py-3" type="submit" > <a href="{% url 'signup' %}" style="color:#fff">SIGN UP</a></button>
+                
+            </div>
+        </div>
+    </form>
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+{% endblock  %}
